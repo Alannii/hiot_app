@@ -6,18 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".test.mvctest.TestMVCActivity">
+    <EditText
+        android:id="@+id/et_user_name"
+        android:hint="请输入用户名"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/bt_mvc"
-        android:text="MVC界面"
+    <EditText
+        android:id="@+id/et_passwd"
+        android:hint="请输入密码"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/bt_mvp"
-        android:text="MVP界面"
+        android:id="@+id/bt_login"
+        android:text="登录"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
 </LinearLayout>
