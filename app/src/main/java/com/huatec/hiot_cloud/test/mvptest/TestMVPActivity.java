@@ -10,13 +10,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huatec.hiot_cloud.R;
+import com.huatec.hiot_cloud.base.BaseActivity;
 import com.huatec.hiot_cloud.test.model.User;
 
-public class TestMVPActivity extends AppCompatActivity implements TestView{
+public class TestMVPActivity extends BaseActivity<TestView,TestPresenter> implements TestView{
+
+    private TestPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        presenter = new TestPresenter();
 
         setContentView(R.layout.activity_test_m_v_p);
 
@@ -26,7 +31,8 @@ public class TestMVPActivity extends AppCompatActivity implements TestView{
 
         final User user = new User();
 
-        final TestPresenter presenter=new TestPresenter(this);
+        presenter.setView(this);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,6 +41,11 @@ public class TestMVPActivity extends AppCompatActivity implements TestView{
                 presenter.login(user);
             }
         });
+    }
+
+    @Override
+    public TestPresenter createPresent() {
+        return presenter;
     }
 
 

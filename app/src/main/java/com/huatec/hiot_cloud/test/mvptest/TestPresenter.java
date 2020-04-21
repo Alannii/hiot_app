@@ -1,14 +1,13 @@
 package com.huatec.hiot_cloud.test.mvptest;
 
+import com.huatec.hiot_cloud.base.BasePresenter;
 import com.huatec.hiot_cloud.test.model.User;
 
-public class TestPresenter {
+public class TestPresenter extends BasePresenter<TestView> {
 
     TestView view;
 
-    public TestPresenter(TestView view){
-        this.view =view;
-    }
+    public TestPresenter(){}
 
     public void login(User user){
 
@@ -17,6 +16,20 @@ public class TestPresenter {
 
         } else {
             view.showMessage("登录失败");
+        }
+    }
+
+    public TestView getView() {
+        return view;
+    }
+
+    public void setView(TestView view) {
+        this.view = view;
+    }
+
+    public void destory(){
+        if (view!=null){
+            view = null;
         }
     }
 }
