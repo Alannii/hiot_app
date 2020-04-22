@@ -1,12 +1,17 @@
 package com.huatec.hiot_cloud.test.mvptest;
 
 import com.huatec.hiot_cloud.base.BasePresenter;
-import com.huatec.hiot_cloud.test.model.User;
+import com.huatec.hiot_cloud.test.User;
+
+import javax.inject.Inject;
+
 
 public class TestPresenter extends BasePresenter<TestView> {
 
     TestView view;
 
+
+    @Inject
     public TestPresenter(){}
 
     public void login(User user){

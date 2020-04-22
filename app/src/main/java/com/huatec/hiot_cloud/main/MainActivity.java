@@ -1,4 +1,4 @@
-package com.huatec.hiot_cloud;
+package com.huatec.hiot_cloud.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.huatec.hiot_cloud.R;
 import com.huatec.hiot_cloud.test.mvctest.TestMVCActivity;
 import com.huatec.hiot_cloud.test.mvptest.TestMVPActivity;
 

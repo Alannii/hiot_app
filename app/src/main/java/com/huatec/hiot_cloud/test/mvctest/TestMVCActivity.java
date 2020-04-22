@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.huatec.hiot_cloud.R;
-import com.huatec.hiot_cloud.test.model.User;
+import com.huatec.hiot_cloud.test.User;
 
 public class TestMVCActivity extends AppCompatActivity {
 

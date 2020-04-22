@@ -1,4 +1,4 @@
-package com.huatec.hiot_cloud.test.model;
+package com.huatec.hiot_cloud.test;
 
 import java.io.Serializable;
 
