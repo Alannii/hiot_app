@@ -6,18 +6,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
-    <Button
-        android:id="@+id/bt_mvc"
-        android:text="MVC界面"
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
-    <Button
-        android:id="@+id/bt_mvp"
-        android:text="MVP界面"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="horizontal">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="5dp"
+            android:orientation="horizontal">
+            <RadioButton
+                android:drawableTop="@drawable/main_label_message"
+                android:text="消息"
+                style="@style/mainRadioButtonStyle" />
+            <RadioButton
+                android:drawableTop="@drawable/main_label_equipment"
+                android:text="设备"
+                style="@style/mainRadioButtonStyle"/>
+            <RadioButton
+                android:drawableTop="@drawable/main_label_scene"
+                android:text="场景"
+                style="@style/mainRadioButtonStyle"/>
+            <RadioButton
+                android:drawableTop="@drawable/main_label_mine"
+                android:text="我的"
+                style="@style/mainRadioButtonStyle"/>
+        </RadioGroup>
+    </LinearLayout>
 
 </LinearLayout>
