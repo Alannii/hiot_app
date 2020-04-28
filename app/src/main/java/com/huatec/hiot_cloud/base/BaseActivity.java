@@ -13,19 +13,22 @@ import com.huatec.hiot_cloud.injection.component.ApplicationComponent;
 import com.huatec.hiot_cloud.injection.component.DaggerActivityComponent;
 import com.huatec.hiot_cloud.injection.module.ActivityModule;
 
-public abstract class BaseActivity<V extends BaseView,P extends BasePresenter> extends AppCompatActivity implements BaseView {
+public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>> extends AppCompatActivity implements BaseView {
 
     private ActivityComponent mActivityComponent;
 
-    private BasePresenter presenter;
+    private P presenter;
 
     public abstract P createPresent();
+
+    public abstract void injectIndependies();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new BasePresenter();
-        presenter.setView(this);
+        injectIndependies();
+        presenter = createPresent();
+        presenter.setView((V)this);
     }
 
     @Override
