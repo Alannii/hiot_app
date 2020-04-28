@@ -1,6 +1,6 @@
 package com.huatec.hiot_cloud.test.mvptest;
 
-import com.huatec.hiot_cloud.base.BasePresenter;
+import com.huatec.hiot_cloud.ui.base.BasePresenter;
 import com.huatec.hiot_cloud.test.User;
 
 import javax.inject.Inject;

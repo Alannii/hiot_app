@@ -24,4 +24,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <LinearLayout
+        android:id="@+id/container_fragment_test"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+    </LinearLayout>
+
 </LinearLayout>

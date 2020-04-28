@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".main.MainActivity">
+tools:context=".ui.main.MainActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_main"
@@ -24,28 +24,28 @@
             android:id="@+id/rg_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingVertical="5dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingVertical="5dp">
             <RadioButton
                 android:id="@+id/rg_message"
+                style="@style/mainRadioButtonStyle"
                 android:drawableTop="@drawable/main_label_message"
-                android:text="消息"
-                style="@style/mainRadioButtonStyle" />
+                android:text="消息" />
             <RadioButton
                 android:id="@+id/rg_equipment"
+                style="@style/mainRadioButtonStyle"
                 android:drawableTop="@drawable/main_label_equipment"
-                android:text="设备"
-                style="@style/mainRadioButtonStyle"/>
+                android:text="设备"/>
             <RadioButton
                 android:id="@+id/rg_scene"
+                style="@style/mainRadioButtonStyle"
                 android:drawableTop="@drawable/main_label_scene"
-                android:text="场景"
-                style="@style/mainRadioButtonStyle"/>
+                android:text="场景"/>
             <RadioButton
                 android:id="@+id/rg_mine"
+                style="@style/mainRadioButtonStyle"
                 android:drawableTop="@drawable/main_label_mine"
-                android:text="我的"
-                style="@style/mainRadioButtonStyle"/>
+                android:text="我的"/>
         </RadioGroup>
     </LinearLayout>
 

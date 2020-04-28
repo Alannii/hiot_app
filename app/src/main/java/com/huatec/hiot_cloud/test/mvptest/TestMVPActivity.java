@@ -7,7 +7,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.huatec.hiot_cloud.R;
-import com.huatec.hiot_cloud.base.BaseActivity;
+import com.huatec.hiot_cloud.test.fragmenttest.TestFragment;
+import com.huatec.hiot_cloud.ui.base.BaseActivity;
 import com.huatec.hiot_cloud.test.dagger2test.ThirdObj;
 import com.huatec.hiot_cloud.test.User;
 
@@ -44,6 +45,9 @@ public class TestMVPActivity extends BaseActivity<TestView,TestPresenter> implem
                 presenter.login(user);
             }
         });
+
+        //显示fragment
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment_test, TestFragment.newInstance(R.drawable.test_photo)).commit();
     }
 
     @Override
