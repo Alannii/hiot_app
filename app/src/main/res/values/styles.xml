@@ -7,6 +7,11 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
     <style name="mainRadioButtonStyle">
         <item name="android:layout_width">0dp</item>
@@ -18,5 +23,7 @@
         <item name="android:gravity">center</item>
         <item name="android:drawablePadding">2dp</item>
     </style>
+    
+    
 
 </resources>
