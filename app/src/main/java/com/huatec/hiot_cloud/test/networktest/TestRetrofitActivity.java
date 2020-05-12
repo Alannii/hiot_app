@@ -6,10 +6,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.huatec.hiot_cloud.R;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -22,6 +27,7 @@ public class TestRetrofitActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
     private TestRetrofitService service;
+    private Gson gson = new Gson();
     private static final String TAG = "TestRetrofitActivity";
 
     @Override
@@ -46,7 +52,7 @@ public class TestRetrofitActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login2("YuBingFeng","abc123","app");
+                login("YuBingFeng","abc123","app");
             }
         });
 
@@ -56,7 +62,7 @@ public class TestRetrofitActivity extends AppCompatActivity {
         btnGetUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getUserInfo("c6ffd6a17f4042b1ae29262be22462dd_4903152737d047aa86655c495961ab78_use");
+                getUserInfo3("c6ffd6a17f4042b1ae29262be22462dd_cba5f132ef904ae68618b8b892bcb716_use");
             }
         });
 
@@ -117,7 +123,13 @@ public class TestRetrofitActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 try {
-                    Log.d(TAG, "onResponse: "+response.body().string());
+                    Type type = new TypeToken<ResultBase<LoginResultDTO>>(){}.getType();
+                    ResultBase<LoginResultDTO> resultBase =  gson.fromJson(response.body().string(),type);
+                    if(resultBase != null || resultBase.getData() != null) {
+                        EditText editText = findViewById(R.id.et_token_retrofit);
+                        editText.setText(resultBase.data.getTokenValue());
+                    }
+
                 } catch (IOException e) {
                     Log.e(TAG, "onResponse: "+e.getMessage(),e);
                 }
@@ -168,6 +180,59 @@ public class TestRetrofitActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+            }
+        });
+    }
+
+    /**
+     * 用户信息查询2
+     * @param "token值"
+     */
+    private void getUserInfo2(String authorization) {
+        Call<ResponseBody> call = service.getUserInfo2(authorization);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    Type type = new TypeToken<ResultBase<UserBean>>(){}.getType();
+                    ResultBase<UserBean> resultBase = gson.fromJson(response.body().string(),type);
+                    if(resultBase != null || resultBase.getData() != null) {
+                        String str = String.format("用户名：%s，邮箱：%s，密码：%s，用户类型：%s"
+                                , resultBase.data.getUsername(), resultBase.data.getEmail(), resultBase.data.getPassword(), resultBase.data.getUserType());
+                        Toast.makeText(TestRetrofitActivity.this, str, Toast.LENGTH_SHORT).show();
+                    }
+
+                    if (resultBase != null && resultBase.getMsg() != null){
+                        Toast.makeText(TestRetrofitActivity.this, resultBase.getMsg(), Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (IOException e) {
+                    Log.e(TAG, "onResponse: "+e.getMessage(),e);
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            }
+        });
+    }
+
+    /**
+     * 用户信息查询3
+     * @param "token值"
+     */
+    private void getUserInfo3(String authorization) {
+        Call<ResultBase<UserBean>> call = service.getUserInfo3(authorization);
+        call.enqueue(new Callback<ResultBase<UserBean>>() {
+            @Override
+            public void onResponse(Call<ResultBase<UserBean>> call, Response<ResultBase<UserBean>> response) {
+                ResultBase<UserBean> resultBase = response.body();
+                if(resultBase != null && resultBase.getData() !=null){
+                String str = String.format("用户：%s，邮箱：%s",resultBase.getData().getUsername(),resultBase.getData().getEmail());
+                    Toast.makeText(TestRetrofitActivity.this, str, Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<ResultBase<UserBean>> call, Throwable t) {
             }
         });
     }

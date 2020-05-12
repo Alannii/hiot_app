@@ -31,6 +31,12 @@ public interface TestRetrofitService {
     @GET("/user/one")
     Call<ResponseBody> getUserInfo(@Header("Authorization") String authorization);
 
+    @GET("/user/one")
+    Call<ResponseBody> getUserInfo2(@Header("Authorization") String authorization);
+
+    @GET("/user/one")
+    Call<ResultBase<UserBean>> getUserInfo3(@Header("Authorization") String authorization);
+
     @PUT("/user/email")
     Call<ResponseBody> updateEmail(@Query("email") String email,@Header("Authorization") String authorization);
 
