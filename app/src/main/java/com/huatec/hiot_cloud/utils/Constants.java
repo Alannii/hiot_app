@@ -16,4 +16,7 @@ public class Constants {
     public static final int MAIN_VIEWPAGER_INDEX_MINE = 3;
 
 
+    public static final String LOGIN_CODE_APP = "app";
+
+    public static final String REGISTER_TYPE_NORMAL = "1";
 }

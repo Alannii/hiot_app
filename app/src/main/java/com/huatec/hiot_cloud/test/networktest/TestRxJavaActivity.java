@@ -1,6 +1,5 @@
 package com.huatec.hiot_cloud.test.networktest;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -9,9 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.huatec.hiot_cloud.R;
-import com.huatec.hiot_cloud.data.NetService;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.huatec.hiot_cloud.R;
+import com.huatec.hiot_cloud.data.NetworkService;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -29,7 +29,7 @@ public class TestRxJavaActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
 
-    private NetService service;
+    private NetworkService service;
 
     EditText editText;
 
@@ -222,11 +222,11 @@ public class TestRxJavaActivity extends AppCompatActivity {
          * 创建retrofit方法
          */
         private void createRetrofit(){
-            retrofit = new Retrofit.Builder().baseUrl(NetService.baseUrl)
+            retrofit = new Retrofit.Builder().baseUrl(NetworkService.baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
-            service = retrofit.create(NetService.class);
+            service = retrofit.create(NetworkService.class);
 
     }
 }

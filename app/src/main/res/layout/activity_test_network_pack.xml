@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".test.networktest.TestNetworkPackActivity">
+
+    <Button
+        android:id="@+id/btn_network_pack_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="百度" />
+
+    <Button
+        android:id="@+id/btn_network_pack_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录" />
+
+    <EditText
+        android:id="@+id/et_token_network_pack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="用户Token" />
+
+    <Button
+        android:id="@+id/btn_network_pack_userinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="用户信息" />
+
+    <Button
+        android:id="@+id/btn_network_pack_update_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="修改邮箱" />
+
+    <Button
+        android:id="@+id/btn_network_pack_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注册" />
+
+</LinearLayout>

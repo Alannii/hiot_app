@@ -15,18 +15,19 @@
         android:roundIcon="@mipmap/hiotapp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".test.networktest.Student2Activity">
-
-        </activity>
-        <activity android:name=".test.networktest.TestRxJavaActivity">
+        <activity android:name=".test.networktest.TestNetworkPackActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.networktest.TestGsonActivity"></activity>
-        <activity android:name=".test.networktest.TestRetrofitActivity"></activity>
+        <activity android:name=".test.networktest.Student2Activity"></activity>
+        <activity android:name=".test.networktest.TestRxJavaActivity">
+
+        </activity>
+        <activity android:name=".test.networktest.TestGsonActivity" />
+        <activity android:name=".test.networktest.TestRetrofitActivity" />
         <activity android:name=".test.networktest.TestOkHttpActivity" />
         <activity android:name=".ui.SplashActivity" />
         <activity android:name=".ui.main.MainActivity" />
