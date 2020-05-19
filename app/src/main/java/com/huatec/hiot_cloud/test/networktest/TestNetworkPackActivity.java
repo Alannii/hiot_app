@@ -66,7 +66,7 @@ public class TestNetworkPackActivity extends BaseActivity<TestNetworkView, TestN
         btnUpdateEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.updateEmail("531h39j@ff.com", "c6ffd6a17f4042b1ae29262be22462dd_d734f0e12d0a44e09721622839edc578_use");
+                presenter.updateEmail("531t39j@ff.com", "c6ffd6a17f4042b1ae29262be22462dd_d734f0e12d0a44e09721622839edc578_use");
             }
         });
 
@@ -75,7 +75,7 @@ public class TestNetworkPackActivity extends BaseActivity<TestNetworkView, TestN
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.register("yu123", "abc123", "931h329j@ff.com");
+                presenter.register("yu333", "abc123", "781h329j@ff.com");
             }
         });
     }
