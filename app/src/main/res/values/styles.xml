@@ -23,7 +23,18 @@
         <item name="android:gravity">center</item>
         <item name="android:drawablePadding">2dp</item>
     </style>
-    
-    
+
+    <style name="loginEditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textColor">#999999</item>
+        <item name="android:textColorHint">#999999</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 
 </resources>

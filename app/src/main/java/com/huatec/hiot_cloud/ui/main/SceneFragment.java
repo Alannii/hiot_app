@@ -48,4 +48,5 @@ public class SceneFragment extends BaseFragment {
     public void injectDependencies() {
 
     }
+
 }

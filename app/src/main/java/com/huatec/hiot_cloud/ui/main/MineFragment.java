@@ -48,4 +48,5 @@ public class MineFragment extends BaseFragment {
     public void injectDependencies() {
 
     }
+
 }

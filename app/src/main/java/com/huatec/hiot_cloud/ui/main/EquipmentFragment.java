@@ -48,4 +48,6 @@ public class EquipmentFragment extends BaseFragment {
     public void injectDependencies() {
 
     }
+
+
 }

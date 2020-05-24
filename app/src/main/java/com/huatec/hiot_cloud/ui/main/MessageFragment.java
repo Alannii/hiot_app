@@ -48,4 +48,5 @@ public class MessageFragment extends BaseFragment {
     public void injectDependencies() {
 
     }
+
 }

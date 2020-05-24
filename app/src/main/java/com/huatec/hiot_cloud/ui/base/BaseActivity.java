@@ -2,6 +2,7 @@ package com.huatec.hiot_cloud.ui.base;
 
 import android.app.Application;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.huatec.hiot_cloud.App;
 import com.huatec.hiot_cloud.injection.component.ActivityComponent;
 import com.huatec.hiot_cloud.injection.component.ApplicationComponent;
-
 import com.huatec.hiot_cloud.injection.component.DaggerActivityComponent;
 import com.huatec.hiot_cloud.injection.module.ActivityModule;
 
@@ -76,5 +76,10 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
      */
     protected ActivityModule getActivityModule() {
         return new ActivityModule(this);
+    }
+
+    @Override
+    public void showMessage(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }
