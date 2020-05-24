@@ -19,4 +19,9 @@ public class Constants {
     public static final String LOGIN_CODE_APP = "app";
 
     public static final String REGISTER_TYPE_NORMAL = "1";
+
+    /**
+     * 服务端消息返回状态成功
+     */
+    public static final int MSG_STATUS_SUCCESS = 1;
 }

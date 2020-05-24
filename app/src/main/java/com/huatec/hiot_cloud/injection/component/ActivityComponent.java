@@ -20,6 +20,7 @@ import com.huatec.hiot_cloud.injection.PerActivity;
 import com.huatec.hiot_cloud.injection.module.ActivityModule;
 import com.huatec.hiot_cloud.test.mvptest.TestMVPActivity;
 import com.huatec.hiot_cloud.test.networktest.TestNetworkPackActivity;
+import com.huatec.hiot_cloud.ui.SplashActivity;
 import com.huatec.hiot_cloud.ui.login.LoginActivity;
 import com.huatec.hiot_cloud.ui.main.MainActivity;
 
@@ -42,6 +43,8 @@ public interface ActivityComponent {
     void inject(TestNetworkPackActivity testNetworkPackActivity);
 
     void inject(LoginActivity loginActivity);
+
+    void inject(SplashActivity splashActivity);
 
     @Component.Builder
     interface ActivityComponentBuilder {

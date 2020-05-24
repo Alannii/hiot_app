@@ -8,6 +8,7 @@ import com.huatec.hiot_cloud.utils.Constants;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import io.reactivex.functions.Consumer;
 
 
 /**
@@ -17,9 +18,12 @@ public class DataManager {
 
     private NetworkService service;
 
+    SharePreferencesHelper sharePreferencesHelper;
+
     @Inject
-    public DataManager(NetworkService service) {
+    public DataManager(NetworkService service, SharePreferencesHelper sharePreferencesHelper) {
         this.service = service;
+        this.sharePreferencesHelper = sharePreferencesHelper;
     }
 
     /**
@@ -30,7 +34,16 @@ public class DataManager {
      * @return
      */
     public Observable<ResultBase<LoginResultDTO>> login(String userName, String password) {
-        return service.login(userName, password, Constants.LOGIN_CODE_APP);
+        return service.login(userName, password, Constants.LOGIN_CODE_APP)
+                .doOnNext(new Consumer<ResultBase<LoginResultDTO>>() {
+                    @Override
+                    public void accept(ResultBase<LoginResultDTO> loginResultDTOResultBase) throws Exception {
+                        if (loginResultDTOResultBase.getStatus() == Constants.MSG_STATUS_SUCCESS) {
+                            //如果登录身份正确，保存token值
+                            sharePreferencesHelper.setUserToken(loginResultDTOResultBase.getData().getTokenValue());
+                        }
+                    }
+                });
     }
 
     public Observable<ResultBase<UserBean>> getUserInfo(String authorization) {
