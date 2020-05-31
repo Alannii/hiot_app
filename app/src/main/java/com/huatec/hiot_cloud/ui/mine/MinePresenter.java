@@ -44,4 +44,31 @@ public class MinePresenter extends BasePresenter<MineView> {
         });
 
     }
+
+    /**
+     * 上传图片
+     *
+     * @param filePath
+     */
+    public void uploadImage(String filePath) {
+        subscrib(dataManager.uploadImage(filePath), new RequestCallback<ResultBase<String>>() {
+            @Override
+            public void onNext(ResultBase<String> stringResultBase) {
+                if (stringResultBase == null) {
+                    getView().showMessage("服务器开小差了，请稍后再试");
+                    return;
+                }
+                if (stringResultBase.getStatus() != Constants.MSG_STATUS_SUCCESS) {
+                    getView().showMessage(stringResultBase.getMsg());
+                    return;
+                }
+                //获取相对路径
+                String url = stringResultBase.getData();
+
+                //刷新用户头像
+                getView().refreshUserHead(url);
+
+            }
+        });
+    }
 }

@@ -24,4 +24,6 @@ public class Constants {
      * 服务端消息返回状态成功
      */
     public static final int MSG_STATUS_SUCCESS = 1;
+
+    public static final String MULTIPART_FORM_DATA = "multipart/form-data";
 }

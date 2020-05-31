@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.huatec.hiot_cloud"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -78,6 +78,13 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
+
+    //获取系统权限框架ACP
+    implementation 'com.mylhyl:acp:1.1.7'
+
+    //图片选择框架
+    //https://github.com/LuckSiege/PictureSelector
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.9'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
