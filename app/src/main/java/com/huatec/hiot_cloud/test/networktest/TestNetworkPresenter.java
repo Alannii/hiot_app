@@ -39,7 +39,7 @@ public class TestNetworkPresenter extends BasePresenter<TestNetworkView> {
      * @param
      */
     public void getUserInfo(String authorization) {
-        subscrib(dataManager.getUserInfo(authorization), new RequestCallback<ResultBase<UserBean>>() {
+        subscrib(dataManager.getUserInfo(), new RequestCallback<ResultBase<UserBean>>() {
 
             @Override
             public void onNext(ResultBase<UserBean> userBeanResultBase) {
@@ -61,7 +61,7 @@ public class TestNetworkPresenter extends BasePresenter<TestNetworkView> {
      * @param
      */
     public void updateEmail(String email, String authorization) {
-        subscrib(dataManager.updateEmail(email, authorization), new RequestCallback<ResultBase<String>>() {
+        subscrib(dataManager.updateEmail(email), new RequestCallback<ResultBase<String>>() {
             @Override
             public void onNext(ResultBase<String> stringResultBase) {
                 if (stringResultBase != null && stringResultBase.getData() != null) {

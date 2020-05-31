@@ -46,12 +46,24 @@ public class DataManager {
                 });
     }
 
-    public Observable<ResultBase<UserBean>> getUserInfo(String authorization) {
-        return service.getUserInfo(authorization);
+    /**
+     * 获取用户信息
+     *
+     * @return
+     */
+
+    public Observable<ResultBase<UserBean>> getUserInfo() {
+        return service.getUserInfo(sharePreferencesHelper.getUserToken());
     }
 
-    public Observable<ResultBase<String>> updateEmail(String email, String authorization) {
-        return service.updateEmail(email, authorization);
+    /**
+     * 修改邮箱
+     *
+     * @param email
+     * @return
+     */
+    public Observable<ResultBase<String>> updateEmail(String email) {
+        return service.updateEmail(email, sharePreferencesHelper.getUserToken());
     }
 
     public Observable<ResultBase<UserBean>> register(String userName, String password, String email) {
