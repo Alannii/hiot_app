@@ -78,7 +78,19 @@ public class DataManager {
         userBean.setEmail(email);
         userBean.setUserType(Constants.REGISTER_TYPE_NORMAL);
         return service.register(userBean);
+    }
 
+    /**
+     * 修改密码
+     *
+     * @param oldpassword
+     * @param newpassword
+     * @param confirmpassword
+     * @return
+     */
+
+    public Observable<ResultBase<String>> updatePassword(String oldpassword, String newpassword, String confirmpassword) {
+        return service.updatePassword(oldpassword, newpassword, confirmpassword, sharePreferencesHelper.getUserToken());
     }
 
     /**
@@ -93,5 +105,20 @@ public class DataManager {
         RequestBody requestBody = RequestBody.create(MediaType.parse(Constants.MULTIPART_FORM_DATA), file);
         MultipartBody.Part multipartFile = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
         return service.uploadImg(multipartFile, sharePreferencesHelper.getUserToken());
+    }
+
+    /**
+     * 注销登录
+     *
+     * @return
+     */
+    public Observable<ResultBase> logout() {
+        return service.logout(sharePreferencesHelper.getUserToken())
+                .doOnNext(new Consumer<ResultBase>() {
+                    @Override
+                    public void accept(ResultBase resultBase) throws Exception {
+                        sharePreferencesHelper.setUserToken("");
+                    }
+                });
     }
 }

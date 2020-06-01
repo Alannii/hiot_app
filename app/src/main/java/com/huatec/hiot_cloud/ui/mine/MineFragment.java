@@ -18,6 +18,9 @@ import com.huatec.hiot_cloud.R;
 import com.huatec.hiot_cloud.test.networktest.UserBean;
 import com.huatec.hiot_cloud.ui.base.BaseActivity;
 import com.huatec.hiot_cloud.ui.base.BaseFragment;
+import com.huatec.hiot_cloud.ui.login.LoginActivity;
+import com.huatec.hiot_cloud.ui.updateemail.UpdateEmailActivity;
+import com.huatec.hiot_cloud.ui.updatepasswd.UpdatePasswdActivity;
 import com.huatec.hiot_cloud.utils.ImageUtils;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
@@ -99,10 +102,17 @@ public class MineFragment extends BaseFragment<MineView, MinePresenter> implemen
                 checkPermission();
                 break;
             case R.id.tv_user_center_update_password:
+                //打开修改密码界面
+                updatePassword();
                 break;
             case R.id.tv_user_center_update_email:
+                //打开修改邮箱界面
+                updateEmail();
                 break;
             case R.id.btn_logout:
+                //注销
+                presenter.logout();
+
                 break;
         }
     }
@@ -207,5 +217,26 @@ public class MineFragment extends BaseFragment<MineView, MinePresenter> implemen
     @Override
     public void refreshUserHead(String url) {
         ImageUtils.showCircle(getActivity(), ivUserHeadImage, ImageUtils.getFullUrl(url));
+    }
+
+    @Override
+    public void tokenOut() {
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
+        getActivity().finish();
+    }
+
+    @Override
+    public void updatePassword() {
+        Intent intent = new Intent(getActivity(), UpdatePasswdActivity.class);
+        startActivity(intent);
+        getActivity().finish();
+    }
+
+    @Override
+    public void updateEmail() {
+        Intent intent = new Intent(getActivity(), UpdateEmailActivity.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 }

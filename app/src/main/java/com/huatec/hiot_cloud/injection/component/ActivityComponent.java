@@ -25,6 +25,8 @@ import com.huatec.hiot_cloud.ui.login.LoginActivity;
 import com.huatec.hiot_cloud.ui.main.MainActivity;
 import com.huatec.hiot_cloud.ui.mine.MineFragment;
 import com.huatec.hiot_cloud.ui.register.RegisterActivity;
+import com.huatec.hiot_cloud.ui.updateemail.UpdateEmailActivity;
+import com.huatec.hiot_cloud.ui.updatepasswd.UpdatePasswdActivity;
 
 import dagger.Component;
 
@@ -51,6 +53,10 @@ public interface ActivityComponent {
     void inject(RegisterActivity registerActivity);
 
     void inject(MineFragment fragment);
+
+    void inject(UpdateEmailActivity updateEmailActivity);
+
+    void inject(UpdatePasswdActivity updatePasswdActivity);
 
     @Component.Builder
     interface ActivityComponentBuilder {

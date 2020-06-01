@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.updatepasswd.UpdatePasswdActivity">
+
+    <EditText
+        android:id="@+id/tv_old_passwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="旧密码"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/tv_new_passswd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="新密码"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/tv_update_passwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="确认密码"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_update_passwd"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/logout_button_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="完成"
+        android:textColor="@color/white" />
+
+</LinearLayout>

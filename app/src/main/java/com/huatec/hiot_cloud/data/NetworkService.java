@@ -24,7 +24,7 @@ public interface NetworkService {
     String baseUrl = "http://114.67.88.191:8080";
 
     @POST("/auth/login")
-    Observable<ResultBase<LoginResultDTO>> login(@Query("username") String userName, @Query("password")String password,
+    Observable<ResultBase<LoginResultDTO>> login(@Query("username") String userName, @Query("password") String password,
                                                  @Query("loginCode") String loginCode);
 
     @GET("/user/one")
@@ -34,6 +34,10 @@ public interface NetworkService {
     @PUT("/user/email")
     Observable<ResultBase<String>> updateEmail(@Query("email") String email, @Header("Authorization") String authorization);
 
+    @PUT("/user/password ")
+    Observable<ResultBase<String>> updatePassword(@Query("oldpassword") String oldpassword, @Query("newpassword") String newpassword,
+                                                  @Query("confirmpassword") String confirmpassword, @Header("Authorization") String authorization);
+
     @POST("/user/register")
     Observable<ResultBase<UserBean>> register(@Body UserBean userBean);
 
@@ -41,4 +45,7 @@ public interface NetworkService {
     @Multipart
     Observable<ResultBase<String>> uploadImg(@Part MultipartBody.Part file,
                                              @Header("Authorization") String authorization);
+
+    @POST("/auth/logout ")
+    Observable<ResultBase> logout(@Header("Authorization") String authorization);
 }
