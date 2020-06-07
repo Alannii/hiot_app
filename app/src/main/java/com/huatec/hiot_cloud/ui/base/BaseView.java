@@ -7,4 +7,9 @@ public interface BaseView {
      * @param msg
      */
     void showMessage(String msg);
+
+    /**
+     * token失效的处理
+     */
+    void tokenOut();
 }

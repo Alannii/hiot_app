@@ -1,6 +1,7 @@
 package com.huatec.hiot_cloud.ui.base;
 
 import android.app.Application;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -12,6 +13,9 @@ import com.huatec.hiot_cloud.injection.component.ActivityComponent;
 import com.huatec.hiot_cloud.injection.component.ApplicationComponent;
 import com.huatec.hiot_cloud.injection.component.DaggerActivityComponent;
 import com.huatec.hiot_cloud.injection.module.ActivityModule;
+import com.huatec.hiot_cloud.ui.login.LoginActivity;
+
+import javax.inject.Inject;
 
 public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>> extends AppCompatActivity implements BaseView {
 
@@ -83,5 +87,29 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
     @Override
     public void showMessage(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 打开新界面关闭本界面
+     * @param cls
+     */
+    protected void startActivity(Class<?> cls){
+        Intent intent = new Intent(this,cls);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * 打开新界面不关闭本界面
+     * @param cls
+     */
+    protected void startActivityWithoutFinish(Class<?> cls){
+        Intent intent = new Intent(this,cls);
+        startActivity(intent);
+    }
+
+    @Override
+    public void tokenOut() {
+        startActivity(LoginActivity.class);
     }
 }
