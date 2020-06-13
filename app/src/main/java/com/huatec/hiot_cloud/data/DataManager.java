@@ -1,5 +1,6 @@
 package com.huatec.hiot_cloud.data;
 
+import com.huatec.hiot_cloud.data.bean.DeviceDetailBean;
 import com.huatec.hiot_cloud.test.networktest.LoginResultDTO;
 import com.huatec.hiot_cloud.test.networktest.ResultBase;
 import com.huatec.hiot_cloud.ui.devicelist.bean.DeviceBean;
@@ -141,4 +142,26 @@ public class DataManager {
     public Observable<ResultBase<List<DeviceBean>>> listBindDevice(int bonding) {
         return service.listBindDevice(bonding, sharePreferencesHelper.getUserToken());
     }
+
+    /**
+     * 获取设备详情
+     *
+     * @param deviceId
+     * @return
+     */
+    public Observable<ResultBase<DeviceDetailBean>> getDeviceDetail(String deviceId) {
+        return service.getDeviceDetail(deviceId, sharePreferencesHelper.getUserToken());
+    }
+
+    /**
+     * 控制通道开关
+     *
+     * @param downdatastream_pk
+     * @param status
+     * @return
+     */
+    public Observable<ResultBase> changeSwitch(String downdatastream_pk, int status) {
+        return service.changeSwitch(downdatastream_pk, status, sharePreferencesHelper.getUserToken());
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.huatec.hiot_cloud.ui.devicelist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +17,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.huatec.hiot_cloud.R;
 import com.huatec.hiot_cloud.ui.base.BaseActivity;
 import com.huatec.hiot_cloud.ui.base.BaseFragment;
+import com.huatec.hiot_cloud.ui.devicedetail.DeviceDetailActivity;
 import com.huatec.hiot_cloud.ui.devicelist.bean.DeviceBean;
 import com.huatec.hiot_cloud.ui.scan.ScanActivity;
+import com.huatec.hiot_cloud.utils.Constants;
 
 import java.util.List;
 
@@ -114,6 +117,17 @@ public class DeviceListFragment extends BaseFragment<DeviceListView, DeviceListP
         rvDeviceList.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvDeviceList.setHasFixedSize(true);
         deviceListAdapter = new DeviceListAdapter(getActivity());
+        deviceListAdapter.setOnItemClickListener(new DeviceListAdapter.OnItemClickListener() {
+            @Override
+            public void onClickListener(DeviceBean bean) {
+                if (bean == null) {
+                    return;
+                }
+                Intent intent = new Intent(getActivity(), DeviceDetailActivity.class);
+                intent.putExtra(Constants.INTENT_EXTRA_DEVICE_ID, bean.getId());
+                startActivity(intent);
+            }
+        });
         rvDeviceList.setAdapter(deviceListAdapter);
     }
 

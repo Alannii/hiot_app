@@ -43,4 +43,46 @@ public class Constants {
      * 设备未绑定状态
      */
     public static final int DEVICE_STATUS_UNBINDED = 0;
+
+    /**
+     * 设备id
+     */
+    public static final String INTENT_EXTRA_DEVICE_ID = "DEVICE_ID";
+
+    /**
+     * 已激活
+     */
+    public static final String DEVICE_STATUS_ACTIVITY = "1";
+
+    /**
+     * 未激活
+     */
+    public static final String DEVICE_STATUS_UN_ACTIVITY = "0";
+
+    /**
+     * 数值类型
+     */
+    public static final String DATA_STREAM_TYPE_VALUE = "1";
+    /**
+     * 开关类型
+     */
+    public static final String DATA_STREAM_TYPE_SWITCH = "2";
+    /**
+     * GPS类型
+     */
+    public static final String DATA_STREAM_TYPE_GPS = "3";
+    /**
+     * 文本类型
+     */
+    public static final String DATA_STREAM_TYPE_TEXT = "4";
+
+    /**
+     * 开关开启状态
+     */
+    public static final int SWITCH_STATUS_ON = 1;
+
+    /**
+     * 开关关闭状态
+     */
+    public static final int SWITCH_STATUS_OFF = 0;
 }
