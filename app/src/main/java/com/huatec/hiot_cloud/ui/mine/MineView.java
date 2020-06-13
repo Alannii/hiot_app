@@ -1,7 +1,7 @@
 package com.huatec.hiot_cloud.ui.mine;
 
-import com.huatec.hiot_cloud.test.networktest.UserBean;
 import com.huatec.hiot_cloud.ui.base.BaseView;
+import com.huatec.hiot_cloud.ui.devicelist.bean.UserBean;
 
 public interface MineView extends BaseView {
 

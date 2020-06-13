@@ -15,9 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.huatec.hiot_cloud.R;
-import com.huatec.hiot_cloud.test.networktest.UserBean;
 import com.huatec.hiot_cloud.ui.base.BaseActivity;
 import com.huatec.hiot_cloud.ui.base.BaseFragment;
+import com.huatec.hiot_cloud.ui.devicelist.bean.UserBean;
 import com.huatec.hiot_cloud.ui.login.LoginActivity;
 import com.huatec.hiot_cloud.ui.updateemail.UpdateEmailActivity;
 import com.huatec.hiot_cloud.ui.updatepasswd.UpdatePasswdActivity;
@@ -35,7 +35,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MineFragment extends BaseFragment<MineView, MinePresenter> implements MineView {

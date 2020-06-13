@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.huatec.hiot_cloud.data.DataManager;
 import com.huatec.hiot_cloud.ui.base.BasePresenter;
+import com.huatec.hiot_cloud.ui.devicelist.bean.UserBean;
 
 import javax.inject.Inject;
 

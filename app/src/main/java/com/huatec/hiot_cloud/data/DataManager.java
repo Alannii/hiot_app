@@ -2,10 +2,12 @@ package com.huatec.hiot_cloud.data;
 
 import com.huatec.hiot_cloud.test.networktest.LoginResultDTO;
 import com.huatec.hiot_cloud.test.networktest.ResultBase;
-import com.huatec.hiot_cloud.test.networktest.UserBean;
+import com.huatec.hiot_cloud.ui.devicelist.bean.DeviceBean;
+import com.huatec.hiot_cloud.ui.devicelist.bean.UserBean;
 import com.huatec.hiot_cloud.utils.Constants;
 
 import java.io.File;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -122,12 +124,21 @@ public class DataManager {
                 });
     }
 
-
     /**
      * 绑定设备
+     *
      * @return
      */
     public Observable<ResultBase> bindDevice(String deviceId) {
-        return service.bindDevice(deviceId,sharePreferencesHelper.getUserToken());
+        return service.bindDevice(deviceId, sharePreferencesHelper.getUserToken());
+    }
+
+    /**
+     * 查询绑定设备
+     *
+     * @return
+     */
+    public Observable<ResultBase<List<DeviceBean>>> listBindDevice(int bonding) {
+        return service.listBindDevice(bonding, sharePreferencesHelper.getUserToken());
     }
 }

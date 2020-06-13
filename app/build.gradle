@@ -93,6 +93,8 @@ dependencies {
     // 分包
     implementation 'androidx.multidex:multidex:2.0.0'
 
+    //下拉控件
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 
 
     testImplementation 'junit:junit:4.12'
