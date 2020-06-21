@@ -12,6 +12,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //解决方法大于65536问题
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -95,6 +98,10 @@ dependencies {
 
     //下拉控件
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+
+    //android开源图表库
+    //https://github.com/PhilJay/MPAndroidChart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 
     testImplementation 'junit:junit:4.12'

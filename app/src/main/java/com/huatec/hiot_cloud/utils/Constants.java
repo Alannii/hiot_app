@@ -85,4 +85,14 @@ public class Constants {
      * 开关关闭状态
      */
     public static final int SWITCH_STATUS_OFF = 0;
+
+    /**
+     * 通道id参数名称
+     */
+    public static final String INTENT_EXTRA_UP_DATASTREAM_ID = "INTENT_EXTRA_UP_DATASTREAM_ID";
+
+    /**
+     * 默认每页返回数量
+     */
+    public static final int DEFAULT_DATASTREAM_LIMIT = 10;
 }

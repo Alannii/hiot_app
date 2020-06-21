@@ -1,6 +1,7 @@
 package com.huatec.hiot_cloud.data;
 
 import com.huatec.hiot_cloud.data.bean.DeviceDetailBean;
+import com.huatec.hiot_cloud.data.bean.UpDataStreamSwitchBean;
 import com.huatec.hiot_cloud.test.networktest.LoginResultDTO;
 import com.huatec.hiot_cloud.test.networktest.ResultBase;
 import com.huatec.hiot_cloud.ui.devicelist.bean.DeviceBean;
@@ -162,6 +163,16 @@ public class DataManager {
      */
     public Observable<ResultBase> changeSwitch(String downdatastream_pk, int status) {
         return service.changeSwitch(downdatastream_pk, status, sharePreferencesHelper.getUserToken());
+    }
+
+    /**
+     * 获取通道历史数据
+     *
+     * @param upDataStreamId
+     * @return
+     */
+    public Observable<ResultBase<List<UpDataStreamSwitchBean>>> getUpdataStreamHistory(String upDataStreamId) {
+        return service.getUpDataStreamHistory(upDataStreamId, 1, Constants.DEFAULT_DATASTREAM_LIMIT, sharePreferencesHelper.getUserToken());
     }
 
 }

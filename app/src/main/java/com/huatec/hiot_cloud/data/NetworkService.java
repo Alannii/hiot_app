@@ -2,6 +2,7 @@ package com.huatec.hiot_cloud.data;
 
 
 import com.huatec.hiot_cloud.data.bean.DeviceDetailBean;
+import com.huatec.hiot_cloud.data.bean.UpDataStreamSwitchBean;
 import com.huatec.hiot_cloud.test.networktest.LoginResultDTO;
 import com.huatec.hiot_cloud.test.networktest.ResultBase;
 import com.huatec.hiot_cloud.ui.devicelist.bean.DeviceBean;
@@ -67,4 +68,10 @@ public interface NetworkService {
     Observable<ResultBase> changeSwitch(@Path("downdatastream_pk") String downdatastream_pk,
                                         @Query("status") int status,
                                         @Header("Authorization") String authorization);
+
+    @GET("/mongo/download/{updatastreamId}/{skip}/{limit}/List ")
+    Observable<ResultBase<List<UpDataStreamSwitchBean>>> getUpDataStreamHistory(@Path("updatastreamId") String updatastreamId,
+                                                                                @Path("skip") int skip,
+                                                                                @Path("limit") int limit,
+                                                                                @Header("Authorization") String authorization);
 }
